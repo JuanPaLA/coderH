@@ -1,0 +1,65 @@
+/* ------------------------------------- */
+#box{
+    
+    width: 30vw;
+    margin: 4vh 0 0 10vw;
+    border: black 1px;
+    text-align: center;
+}
+
+#topbox{
+    height: 15vh;
+    width: 30vw;
+    background-color:#ececec;
+}
+
+#fr{
+    padding: 1vh 1vw 1vh 1vw;
+    margin: auto;
+}
+
+#sr{
+    text-align: center;
+    margin: 3vh;
+}
+
+#cont{
+    background-color: white;
+    width: 100%;
+    height: 4vh;
+    margin: auto;
+    position: relative;
+}
+
+#min{
+    color: blue;
+    font-weight: 900;
+    position: absolute;
+    right: 2vw;
+    font-size: 1.2em;
+}
+
+#precio{
+    font-weight: 700;
+    colo: red;
+}
+
+#count{
+    position: absolute;
+    right: 50%;
+    font-weight: 700;
+    padding-top: 0.5vh;
+}
+
+#add{
+    font-weight: 900;
+    color: red;
+    position: absolute;
+    left: 2vw;
+    font-size: 1.2em;
+}
+
+#carr{
+    width: 28vw;
+    margin-top: 0.5vh;
+}

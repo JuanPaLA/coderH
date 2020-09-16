@@ -1,0 +1,24 @@
+
+#nabody{
+    margin-left: 7vw;
+}
+
+#iconContainer{
+    
+
+}
+
+#icon{
+    position: relative;
+    background-repeat: no-repeat; /* Do not repeat the image */
+    /* min-height: 7vh;
+    max-height: 8vh;    */
+}
+
+#note{
+    font-weight: 600;
+    color: red;
+    position: relative;       
+    top: -2vh;
+    font-size: 0.8em;
+}

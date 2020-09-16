@@ -1,0 +1,25 @@
+/* ------------ITEM---------- */
+
+#item{
+    margin: 2vh 0 0 7vw;
+    width: 74%;
+    text-align: left;
+    border-bottom: 1px solid black;
+    padding: 1vh 1vw 1vh 1vw
+}
+
+#item:hover{
+    background-color: lightgray;
+}
+
+#nombre{
+    color: coral;   
+}
+
+#price{
+    
+}
+
+#categoria{
+    margin-bottom: 1vh;
+}
