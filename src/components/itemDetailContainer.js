@@ -1,9 +1,28 @@
 import React, {useState, useEffect} from 'react'
+import { getFirestore } from '../firestore';
 import ItemDetail from './itemDetail';
 
 const ItemDetailContainer= (props)=> {
 
     const [item, setItem] = useState(false);
+    
+    // let id = props.match.params.id;
+    // const db = getFirestore();
+    // const itemCollection = db.collection('items')
+    // const producto = itemCollection.doc(itemId)
+    
+    // producto.get().then((doc)=>{
+    //     if(!doc.exits){
+    //         console.log('item does not exist');
+    //         return;
+    //     }
+    //     console.log('Item found');
+    //     setItem({id: doc.id, ...doc.data()});
+    // }).catch((error)=> {
+    //     console.log('Error searching items', error);
+    // }).finally(()=> {
+    //     console.log('bieeen');
+    // })
 
     useEffect(() => {
         let id = props.match.params.id;
