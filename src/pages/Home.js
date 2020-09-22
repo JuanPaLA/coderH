@@ -1,10 +1,10 @@
-import React, {useContext} from 'react';
+import React, {useState, useEffect} from 'react';
 import ItemList from '../components/itemList';
+import { getFirestore } from '../firestore';
 
 
 function Home(props){
-    // const carrito = useContext()
-    // console.log(carrito)
+
     return(
         <div style={{
             textAlign: 'center',

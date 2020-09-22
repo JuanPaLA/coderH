@@ -4,45 +4,24 @@ import ItemDetail from './itemDetail';
 
 const ItemDetailContainer= (props)=> {
 
+    let id = props.match.params.id;
     const [item, setItem] = useState(false);
-    
-    // let id = props.match.params.id;
-    // const db = getFirestore();
-    // const itemCollection = db.collection('items')
-    // const producto = itemCollection.doc(itemId)
-    
-    // producto.get().then((doc)=>{
-    //     if(!doc.exits){
-    //         console.log('item does not exist');
-    //         return;
-    //     }
-    //     console.log('Item found');
-    //     setItem({id: doc.id, ...doc.data()});
-    // }).catch((error)=> {
-    //     console.log('Error searching items', error);
-    // }).finally(()=> {
-    //     console.log('bieeen');
-    // })
 
-    useEffect(() => {
-        let id = props.match.params.id;
-        console.log(props);
-        setTimeout(
-            function(){
-                fetch(
-                    `https://5f3c95f36c11f80016d6f21e.mockapi.io/bitbuyer/items/${id}`
-                )
-                .then(function(response){
-                    return response.json();
-                })
-                .then(function(data){
-                    setItem(data)
-                })
-            }, 3
-        )
+    useEffect(()=>{
+        const db = getFirestore();
+        const itemCollection = db.collection('items')
+        const prod = itemCollection.doc(id)
+
+        prod
+        .get()
+        .then((snapshot)=>{
+            const data = snapshot.data()
+            console.log(data);
+            setItem(data)
+        })
     }, [])
 
-
+    console.log(item);
 
     if(item === false){
         return <div style={{margin: '4vh 7vw'}}>
