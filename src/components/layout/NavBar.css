@@ -22,3 +22,17 @@
     top: -2vh;
     font-size: 0.8em;
 }
+
+.footer{
+    margin-top: 4vh;
+    padding: 1vh 10vw 1vh 10vw;
+    height: 10%;
+    background-color: lightgray;
+    text-align: center;
+    width: 110vw;
+}
+
+#col{
+    /* width: 40%;
+    padding: 2vh 2vw 2vh 2vw; */
+}

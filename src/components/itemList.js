@@ -1,11 +1,12 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useEffect } from 'react';
 import Item from './item';
 import './itemList.css';
 import { getFirestore } from '../firestore';
 
-const ItemList3= (props) =>{
+const ItemList= (props) =>{
   
     const [items, setItems] = useState([])
+
     const [loading, setLoading] = useState(true)
 
     useEffect(()=> {
@@ -19,19 +20,17 @@ const ItemList3= (props) =>{
             id: doc.id,
             ...doc.data(),
           }));
-          console.log("All data in 'books' collection", data); 
+          console.log("------", data); 
           setItems(data)
           setLoading(false)
         });
     },[])
-    
-        console.log(items);
 
       if(items.length > 0){
         return items.map((p, i) => (
              p.categoria != "categoria 1" ?              
              <div id="itemContainer" key={{i}}>
-                <Item id={p.id} nombre={p.nombre} precio={p.precio} categoria={p.categoria}/>         
+                <Item key={i} id={p.id} nombre={p.nombre} precio={p.precio} categoria={p.categoria}/>         
              </div>
              :             
              <div key={{i}}>
@@ -45,4 +44,4 @@ const ItemList3= (props) =>{
       
 }
 
-export default ItemList3;
+export default ItemList;

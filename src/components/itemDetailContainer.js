@@ -11,12 +11,11 @@ const ItemDetailContainer= (props)=> {
         const db = getFirestore();
         const itemCollection = db.collection('items')
         const prod = itemCollection.doc(id)
-
+        
         prod
         .get()
         .then((snapshot)=>{
             const data = snapshot.data()
-            console.log(data);
             setItem(data)
         })
     }, [])
@@ -29,7 +28,7 @@ const ItemDetailContainer= (props)=> {
         </div>
     }else{
         return <div style={{margin: '4vh' }}>
-            <ItemDetail nombre={item.nombre} precio={item.precio} categoria={item.categoria} />
+            <ItemDetail id={id} nombre={item.nombre} precio={item.precio} categoria={item.categoria} />
         </div>
     }
 

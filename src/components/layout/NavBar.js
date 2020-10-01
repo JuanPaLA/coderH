@@ -13,20 +13,20 @@ const NavBar = (props) => {
     
     <div id="naver">
       <Navbar id="naver" style={{fontSize: '120%'}} color="light" light expand="md">
-      <Link to={'./cart'}>
+    <Link to={'/cart'}>
         <Icon/>
+    </Link>
+      <Link to={'/'}>
+        <NavbarBrand id="nabody" >BitBuyer  </NavbarBrand>
       </Link>
-        <NavbarBrand id="nabody" href="/">BitBuyer  </NavbarBrand>
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
           <Nav className="mr-auto" navbar>
             <UncontrolledDropdown nav inNavbar>
-              <DropdownToggle nav caret>
-                Trabajos Prácticos
-              </DropdownToggle>
+          
               <DropdownMenu right>
                 <DropdownItem>
-                  <NavLink href={'/cart'}>Cart</NavLink>
+                  <Link href={'/cart'}>Cart</Link>
                 </DropdownItem>
                 <DropdownItem>
                   Electrodomésticos
@@ -41,7 +41,7 @@ const NavBar = (props) => {
             </div>
           </Nav>          
               <NavLink href="/cart">Cart</NavLink>
-              <NavLink href="/counter">Counter</NavLink>         
+ 
         </Collapse>
       </Navbar>
     </div>
