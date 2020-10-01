@@ -20,8 +20,6 @@ const ItemDetailContainer= (props)=> {
         })
     }, [])
 
-    console.log(item);
-
     if(item === false){
         return <div style={{margin: '4vh 7vw'}}>
             Cargando item desde base de datos...

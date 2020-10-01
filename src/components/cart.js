@@ -27,10 +27,8 @@ function Cart (props) {
         db.collection('orders').add(
             {
             buyer: {name, email, phone},
-            items: [
-                {id, title, price},
-                {id, title, price},
-            ], price         
+            cart, 
+            price         
           }
           ).then(({id})=>{
             setOrderID(id)

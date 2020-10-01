@@ -1,6 +1,6 @@
 import React, { useState, useContext } from 'react';
 import { Button} from 'reactstrap';
-import ItemCount from '../components/tps/Counter/itemCount';
+import Item from '../components/tps/Counter/itemCount';
 import { CartContext } from '../context/cartContext';
 
 function ItemDetail(props){
@@ -19,7 +19,7 @@ function ItemDetail(props){
 
     return(
     <div>
-        <ItemCount func={giveMeCount} nombre={props.nombre} id={props.id} categoria={props.categoria} precio={props.precio}/>
+        <Item func={giveMeCount} nombre={props.nombre} id={props.id} categoria={props.categoria} precio={props.precio}/>
         <Button onClick={()=> handlerBuyer()} 
             style={{marginLeft: '11vw'}} 
             id="carr" 
