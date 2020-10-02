@@ -2,6 +2,7 @@ import React, { useState, useContext } from 'react';
 import { Button} from 'reactstrap';
 import Item from '../components/tps/Counter/itemCount';
 import { CartContext } from '../context/cartContext';
+import {Link} from 'react-router-dom'
 
 function ItemDetail(props){
     
@@ -26,6 +27,12 @@ function ItemDetail(props){
             outline color='primary'>
                 Comprar: {count}
             </Button>
+            <br></br>
+            <div style={{marginLeft: '12vw'}}>
+                <br>
+                </br>
+                <Link exact to={ `/category/${props.categoria}`}>Más productos de {props.categoria}</Link>
+            </div>
     </div>    
     )}
 
