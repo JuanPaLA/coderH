@@ -4,7 +4,6 @@ import './itemList.css';
 import { getFirestore } from '../firestore';
 
 const Catist= (props) =>{
-    let cat = props.match.params.cat;
     const [items, setItems] = useState([])
 
     const [loading, setLoading] = useState(true)

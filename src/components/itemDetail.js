@@ -13,9 +13,14 @@ function ItemDetail(props){
         setCount(c)
     }
     
+    //Función asociada al botón comprar
     function handlerBuyer(){
-        carter(count, props.nombre, props.id)
-        setCount(0)
+        if(count === 0){
+            alert('Seleccione una cantidad de ' + props.nombre)
+        }else{
+            carter(count, props.nombre, props.id, props.precio)
+            setCount(0)
+        }
     }
 
     return(
@@ -27,6 +32,10 @@ function ItemDetail(props){
             outline color='primary'>
                 Comprar: {count}
             </Button>
+            <br></br>
+            <div style={{marginLeft: '12vw'}}>
+               <li>Stock disponible: {props.stock}</li>     
+            </div>
             <br></br>
             <div style={{marginLeft: '12vw'}}>
                 <br>

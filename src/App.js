@@ -24,7 +24,7 @@ function App() {
         <Route exact path='/' component={Home} />
         <Route exact path='/cart' component={cart}/>
         <Route path='/itemdetail/:id' component={itemDetailContainer}/>
-        <Route path='/category/:cat' component={CatList}/>
+        <Route exact path='/category/:cat' component={CatList}/>
         </Switch>        
         </BrowserRouter>
       </CartContextProvider>

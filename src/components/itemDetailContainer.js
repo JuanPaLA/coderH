@@ -26,7 +26,7 @@ const ItemDetailContainer= (props)=> {
         </div>
     }else{
         return <div style={{margin: '4vh' }}>
-            <ItemDetail id={id} nombre={item.nombre} precio={item.precio} categoria={item.categoria} />
+            <ItemDetail id={id} nombre={item.nombre} precio={item.precio} categoria={item.categoria} stock={item.stock}/>
         </div>
     }
 

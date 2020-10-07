@@ -1,28 +1,19 @@
 import React, { useState, useContext } from 'react';
 import { CartContext } from '../context/cartContext';
 import { getFirestore } from '../firestore';
-import { Col, Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
-import { useEffect } from 'react';
+import { Col, Button, Form, FormGroup, Label, Input } from 'reactstrap';
 import {Link} from 'react-router-dom';
 
-function Cart (props) {
+function Cart () {
     const [cart] = useContext(CartContext);
     const [phone, setPhone] = useState()
     const [email, setEmail] = useState()
     const [name, setName] = useState()
     const [orderId, setOrderID] = useState()
-    const [items, setItems] = useState()
-
-    useEffect(()=>{
-        console.log(JSON.stringify(cart));
-    }, [])
     
     function fire(e){
         e.preventDefault();
         const db = getFirestore();
-        const orders = db.collection("orders");
-        var id = 1;
-        var title = 'campera';
         var price = 2332;
         db.collection('orders').add(
             {
@@ -30,16 +21,36 @@ function Cart (props) {
             cart, 
             price         
           }
-          ).then(({id})=>{
+          )
+          .then(({id})=>{
             setOrderID(id)
             clearState()
-          }); 
+          })
+          .then(()=>{
+              const itemsU = db.collection('items')
+               cart.map((i)=>{
+                   console.log(i.id);
+                   const aux = itemsU.doc(i.id)
+                   aux.get()
+                   .then((doc)=>{
+                       var aux = doc.data()
+                       var n_stock = aux.stock;
+                       n_stock = n_stock - i.cantidad;
+                       alert(n_stock)
+                       itemsU.doc(i.id).update({
+                            stock: n_stock
+                       })
+                   })
+               })     
+          })
         };
     
         function clearState(){
             setEmail('')
             setName('')
             setPhone('')
+            var t = ''
+            document.getElementById('email').innerHTML = t
         }
 
         if(cart.length === 0){
@@ -54,7 +65,7 @@ function Cart (props) {
             <div style={{margin: '0 0 0 5vw'}}>
                 <h4>Órdenes de compras </h4>
                 {cart.map((i,y)=> (
-                    <FormGroup row>
+                    <FormGroup row key={y}>
                         <Label sm={8}>
                             Producto: {i.nombre} <br></br>
                             Cantidad: {i.cantidad}
@@ -65,18 +76,18 @@ function Cart (props) {
                 <FormGroup row>
                     <Label for="exampleEmail" sm={8}>Email</Label>
                     <Col sm={6}>
-                    <Input value={email} onChange={(e)=>setEmail(e.target.value)} type="email" name="email" id="email" placeholder="" />
+                    <Input onChange={(e)=>setEmail(e.target.value)} type="email" name="email" id="email" placeholder="" />
                     </Col>
                 </FormGroup>
                 <FormGroup row>
                     <Label for="phone" sm={8}>Phone</Label>
                     <Col sm={6}>
-                    <Input value={phone} onChange={(e)=>setPhone(e.target.value)} type="phone" name="phone" id="phone" placeholder="" />
+                    <Input onChange={(e)=>setPhone(e.target.value)} type="phone" name="phone" id="phone" placeholder="" />
                     </Col>
                 </FormGroup><FormGroup row>
                     <Label for="name" sm={8}>Name</Label>
                     <Col sm={6}>
-                    <Input value={name} onChange={(e)=>setName(e.target.value)} type="name" name="name" id="name" placeholder="" />
+                    <Input onChange={(e)=>setName(e.target.value)} type="name" name="name" id="name" placeholder="" />
                     </Col>
                 </FormGroup>
                 <FormGroup check row>
@@ -94,3 +105,14 @@ function Cart (props) {
 
 
 export default Cart; 
+
+
+
+// .then(()=>{
+            //     var doc = db.collection('items').doc('6kVM5FaTJgLhVSYDPJxD')
+            //     doc
+            //     .get()
+            //     .then((d)=>{
+            //         var aux = d.data()
+            //         var stock = aux.stock;
+            //     })

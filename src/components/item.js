@@ -9,7 +9,7 @@ function Item (props){
                 <h4 id="nombre">{props.nombre}</h4>
             </Link>
             <li id="price">Precio: <strong>{props.precio}</strong></li>
-            <li id="categoría">{props.categoria}</li>
+            <li id="categoría">Categoría: {props.categoria}</li>
         </div>
     )
 } 

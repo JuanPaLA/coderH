@@ -1,6 +1,17 @@
 import React, { useState } from 'react';
 import './NavBar.css';
-import { Collapse,Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink, UncontrolledDropdown, DropdownToggle, DropdownMenu, DropdownItem, NavbarText, Button } from 'reactstrap';
+import {   Collapse,
+  Navbar,
+  NavbarToggler,
+  NavbarBrand,
+  Nav,
+  NavItem,
+  NavLink,
+  UncontrolledDropdown,
+  DropdownToggle,
+  DropdownMenu,
+  DropdownItem,
+  NavbarText} from 'reactstrap';
 import Icon from './CartIcon';
 import { Link } from 'react-router-dom';
 
@@ -17,32 +28,30 @@ const NavBar = (props) => {
         <Icon/>
     </Link>
       <Link to={'/'}>
-        <NavbarBrand id="nabody" >BitBuyer  </NavbarBrand>
+        <NavbarBrand id="nabody" >BitBuyer </NavbarBrand>
       </Link>
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
           <Nav className="mr-auto" navbar>
             <UncontrolledDropdown nav inNavbar>
-          
+              <DropdownToggle nav caret>
+                Categorías
+              </DropdownToggle>
               <DropdownMenu right>
                 <DropdownItem>
-                  <Link href={'/cart'}>Cart</Link>
+                  <Link to='/category/calzado' >Calzado</Link>
                 </DropdownItem>
                 <DropdownItem>
-                  Electrodomésticos
-                </DropdownItem>                
-                <DropdownItem>
-                  Servicios
+                  <Link to='/category/Ropa fantástica'>Ropa fantástica</Link>
                 </DropdownItem>
+                <DropdownItem divider />
               </DropdownMenu>
             </UncontrolledDropdown>
-            <div >
-            
-            </div>
-          </Nav>          
-              <NavLink href="/cart">Cart</NavLink>
- 
+          </Nav>
         </Collapse>
+        
+              <Link to="/cart">Cart</Link>
+ 
       </Navbar>
     </div>
     

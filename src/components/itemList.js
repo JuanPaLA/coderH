@@ -11,7 +11,7 @@ const ItemList= (props) =>{
 
     useEffect(()=> {
         const db = getFirestore();
-        const items = db.collection("items");
+        const items = db.collection("items").where('stock','>=', 2);
       
       items
         .get()
@@ -20,7 +20,6 @@ const ItemList= (props) =>{
             id: doc.id,
             ...doc.data(),
           }));
-          console.log("------", data); 
           setItems(data)
           setLoading(false)
         });
