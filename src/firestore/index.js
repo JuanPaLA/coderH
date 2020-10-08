@@ -2,7 +2,7 @@ import * as firebase from 'firebase/app';
 import 'firebase/firestore';
 
 const app = firebase.initializeApp  ({
-    apiKey: "AIzaSyCFIao62jWS-omw5u267O1l5LMuJlxRWGw",
+    apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
     authDomain: "react-fire-c9db6.firebaseapp.com",
     databaseURL: "https://react-fire-c9db6.firebaseio.com",
     projectId: "react-fire-c9db6",
