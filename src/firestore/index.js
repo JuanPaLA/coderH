@@ -3,13 +3,13 @@ import 'firebase/firestore';
 
 const app = firebase.initializeApp  ({
     apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
-    authDomain: "react-fire-c9db6.firebaseapp.com",
-    databaseURL: "https://react-fire-c9db6.firebaseio.com",
+    authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
+    databaseURL: process.env.REACT_APP_FIREBASE_DATABASE_URL,
     projectId: "react-fire-c9db6",
-    storageBucket: "react-fire-c9db6.appspot.com",
-    messagingSenderId: "1034971015193",
-    appId: "1:1034971015193:web:a372a57581b45322aea288",
-    measurementId: "G-GJX4V9BFN4"
+    storageBucket: process.env.REACT_APP_FIREBASE_storageBucket,
+    messagingSenderId: process.env.REACT_APP_FIREBASE_messagingSenderId,
+    appId: process.env.REACT_APP_FIREBASE_appId,
+    measurementId: process.env.REACT_APP_FIREBASE_measurement_idmeasurementId
   });
   
   export function getFirebase(){
