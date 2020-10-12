@@ -6,13 +6,13 @@ import { CartContext } from '../../context/cartContext';
 
 
 function Icon() {
-    const [cart] = useContext(CartContext);
+    const [long] = useContext(CartContext)
         return(
             <div id="iconContainer">
             
                     <FontAwesomeIcon icon={faShoppingCart}/>
                 <span id="note">
-                    {cart.length}
+                    {long}
                 </span>
                 
             </div>

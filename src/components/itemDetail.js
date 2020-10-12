@@ -7,7 +7,7 @@ import {Link} from 'react-router-dom'
 function ItemDetail(props){
     
     const [count, setCount] = useState(0);
-    const [cart, carter] = useContext(CartContext);
+    const [long, cart, carter] = useContext(CartContext);
 
     function giveMeCount(c){
         setCount(c)
