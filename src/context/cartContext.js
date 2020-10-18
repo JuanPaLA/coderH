@@ -1,25 +1,22 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useState } from 'react';
 
 export const CartContext = React.createContext([]);
 
 const CartContextProvider = (props) => {
-    const [cart, setCart] = useState([]);
-    const [long, setLong] = useState(0);
+    const [cart, setCart] = useState([]); //para manejar el array del carrito
+    const [long, setLong] = useState(0); //para manejar la longitud (cantidad) de items agregados al carrito (comienza en 0)
 
-    useEffect(() => {
-        alert(long)
-    }, [long])
-    //funcion encargada de agregar compras al carrito 
-    function carter(a,b,c,d){
-        setLong(long + a)
+    //funcion encargada de agregar compras al carrito (asociada al botón de "agregar al carrito/comprar")
+    function carter(a,b,c,d){ //a => cantidad / b => nombre / c => id / d => precio
+        setLong(long + a)  //sumo a long (cantindad de items) la cantidad ingresada en la acción de compras
         var flag = false; //para marcar si tengo o no ya el item en el carrito
         var total = d * a; //total => cantidad de item * precio 
         var kart = ([...cart]) //carrito que armao del state-cart
 
         if(kart.length > 0){ //si ya tengo un item en el carrito, examino si el que acabo de comprar tmb está
             for (let k in kart) {
-                if(kart[k].id == c){ //si es que ya esta, actualizo cantidad y precio total
+                if(kart[k].id == c){ //si es que ya está, actualizo cantidad y precio total
                     kart[k].cantidad = kart[k].cantidad + a;
                     kart[k].total = kart[k].total + total;
                     setCart(kart) //agrego carrito actualizado
@@ -35,6 +32,7 @@ const CartContextProvider = (props) => {
     }
 
     function eraser(){
+        setLong(0)
         setCart([])
     }
 

@@ -49,8 +49,7 @@ function Cart () {
             setEmail('')
             setName('')
             setPhone('')
-            var t = ''
-            document.getElementById('email').innerHTML = t
+            eraser();
         }
 
         if(cart.length === 0){
@@ -108,14 +107,3 @@ function Cart () {
 
 
 export default Cart; 
-
-
-
-// .then(()=>{
-            //     var doc = db.collection('items').doc('6kVM5FaTJgLhVSYDPJxD')
-            //     doc
-            //     .get()
-            //     .then((d)=>{
-            //         var aux = d.data()
-            //         var stock = aux.stock;
-            //     })
