@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import { Col, Button, Form, FormGroup, Label, Input, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
+import { Button,  Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 
 const OrderModel = (props) => {
   
@@ -7,13 +7,14 @@ const OrderModel = (props) => {
   
     const toggle = () => setModal(!modal);
 
-    // useEffect(()=>{
-    //    setModal(true) 
-    // }, [])
+    useEffect(()=>{
+      if(props.orderId != false){
+        setModal(true) 
+      }
+    }, [])
 
     return (
       <div>
-        <Button color="danger" onClick={toggle}>Fire</Button>
         <Modal isOpen={modal} toggle={toggle}>
           <ModalHeader toggle={toggle}>Order ID</ModalHeader>
           <ModalBody>

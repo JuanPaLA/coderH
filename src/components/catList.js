@@ -2,11 +2,12 @@ import React, { useState, useEffect } from 'react';
 import Item from './item';
 import './itemList.css';
 import { getFirestore } from '../firestore';
+import { useParams } from 'react-router-dom';
 
 const Catist= (props) =>{
     const [items, setItems] = useState([])
 
-    const [loading, setLoading] = useState(true)
+    const [loading, setLoading] = useState(true);
 
     useEffect(()=> {
         const db = getFirestore();
@@ -23,7 +24,7 @@ const Catist= (props) =>{
           setItems(data)
           setLoading(false)
         });
-    },[])
+    },[[props.match.params.cat]])
 
       if(items.length > 0){
         return items.map((p, i) => (

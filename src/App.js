@@ -5,7 +5,6 @@ import Home from './pages/Home';
 import itemDetailContainer from './components/itemDetailContainer';
 import cart from './components/cart';
 import CatList from './components/catList';
-
 //navegación
 import {Switch, Route, BrowserRouter } from 'react-router-dom';
 //context
@@ -24,7 +23,7 @@ function App() {
         <Route exact path='/' component={Home} />
         <Route exact path='/cart' component={cart}/>
         <Route path='/itemdetail/:id' component={itemDetailContainer}/>
-        <Route exact path='/category/:cat' component={CatList}/>
+        <Route path='/category/:cat' component={CatList}/>
         </Switch>        
         </BrowserRouter>
       </CartContextProvider>

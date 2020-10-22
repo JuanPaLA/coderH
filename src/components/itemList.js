@@ -32,7 +32,7 @@ const ItemList= (props) =>{
                 <Item key={i} id={p.id} nombre={p.nombre} precio={p.precio} categoria={p.categoria}/>         
              </div>
              :             
-             <div key={{i}}>
+             <div>
                 
              </div>
         ))      

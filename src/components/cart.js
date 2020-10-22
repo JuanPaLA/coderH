@@ -4,13 +4,12 @@ import { getFirestore } from '../firestore';
 import { Col, Button, Form, FormGroup, Label, Input, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import {Link} from 'react-router-dom';
 
-
-function Cart (props) {
+function Cart () {
     const [long, cart, carter, eraser, total ] = useContext(CartContext);
     const [phone, setPhone] = useState()
     const [email, setEmail] = useState()
     const [name, setName] = useState()
-    const [orderId, setOrderID] = useState()
+    const [orderId, setOrderID] = useState(false)
     const [modal, setModal] = useState(false)
 
     //para controlar la apertura del modal luego de ejecutarse la compra
@@ -97,13 +96,11 @@ function Cart (props) {
                     <FormGroup check row>
                         <Col sm={{ size: 10, offset: 2 }}>
                         <Button color='danger' onClick={(e)=>fire(e)}>Fire</Button>
-                        
                         </Col>
                     </FormGroup>       
 
                     {/* Modal que se activa luego de consumar la compra con notificación de id
                     Además, limpia el carrito y lo deja vacío.         */}
-
                     <Modal isOpen={modal} toggle={toggle}>
                         <ModalHeader toggle={toggle}>Order ID</ModalHeader>
                         <ModalBody>
@@ -116,8 +113,7 @@ function Cart (props) {
                     </Modal>
                 </Form>
             </div>
-            )
-            
+            )         
         }
     }
 

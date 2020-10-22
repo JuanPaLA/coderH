@@ -60,12 +60,12 @@ MODELO
     },
     'items': [
         {
-            'id': id, 'title': 'titulo', 'cantidad': 2
+            'id': id, 'title': 'titulo', 'cantidad': 2, "subtotal: xxxx"
         }.
         {
-            'id': id, 'title': 'titulo', 'cantidad': 2
+            'id': id, 'title': 'titulo', 'cantidad': 2, "subtotal: xxxx"
         }.
-        'total': 4884848
+        'total': xxxxx
     ]
 }
 */

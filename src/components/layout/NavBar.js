@@ -42,7 +42,10 @@ const NavBar = (props) => {
                   <Link to='/category/calzado' >Calzado</Link>
                 </DropdownItem>
                 <DropdownItem>
-                  <Link to='/category/Ropa fantástica'>Ropa fantástica</Link>
+                  <Link to='/category/fantástica'>Ropa fantástica</Link>
+                </DropdownItem>
+                <DropdownItem>
+                  <Link to={`/category/domingo`}>Domingo</Link>
                 </DropdownItem>
                 <DropdownItem divider />
               </DropdownMenu>
